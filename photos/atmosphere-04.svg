@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Field campaign placeholder</title>
+  <desc id="desc">Abstract field campaign horizon with instruments and layered atmosphere.</desc>
+  <defs>
+    <linearGradient id="dawn" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7efe3" />
+      <stop offset="0.55" stop-color="#b9d5d7" />
+      <stop offset="1" stop-color="#2f6f4e" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" fill="url(#dawn)" />
+  <path d="M0 544C168 490 298 560 460 518s284-118 462-74 226 92 278 72v244H0z" fill="#295f45" opacity="0.92" />
+  <path d="M0 462C212 420 418 478 618 430s406-68 582-26" fill="none" stroke="#ffffff" stroke-opacity="0.62" stroke-width="10" />
+  <g fill="none" stroke="#102033" stroke-width="8" stroke-linecap="round">
+    <path d="M214 548V374M176 548h76M214 374l70-52M214 374l-54-44" />
+    <path d="M932 526V342M888 526h90M932 342l86-38M932 342l-76-34" />
+  </g>
+  <circle cx="610" cy="206" r="82" fill="#f8d7a4" opacity="0.72" />
+</svg>

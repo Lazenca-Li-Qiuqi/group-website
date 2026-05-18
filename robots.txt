@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://lazenca-li-qiuqi.github.io/group-website/sitemap.xml

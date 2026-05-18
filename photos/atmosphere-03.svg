@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Satellite swath placeholder</title>
+  <desc id="desc">Abstract satellite swath and cloud texture over an ocean surface.</desc>
+  <defs>
+    <linearGradient id="ocean" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#133c55" />
+      <stop offset="0.55" stop-color="#0f6b78" />
+      <stop offset="1" stop-color="#9bd3d5" />
+    </linearGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="18" />
+    </filter>
+  </defs>
+  <rect width="1200" height="760" fill="url(#ocean)" />
+  <path d="M-70 620C220 422 428 518 604 356s388-212 676-120" fill="none" stroke="#ffffff" stroke-opacity="0.78" stroke-width="54" filter="url(#soft)" />
+  <path d="M-30 640C224 484 420 548 628 410s382-188 650-106" fill="none" stroke="#ffffff" stroke-opacity="0.56" stroke-width="18" />
+  <g fill="#ffffff" opacity="0.2">
+    <circle cx="232" cy="210" r="26" />
+    <circle cx="320" cy="246" r="18" />
+    <circle cx="952" cy="514" r="34" />
+    <circle cx="1026" cy="468" r="20" />
+  </g>
+</svg>
