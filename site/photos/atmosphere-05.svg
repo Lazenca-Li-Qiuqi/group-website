@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Ensemble forecast placeholder</title>
+  <desc id="desc">Abstract ensemble forecast plumes and probability bands.</desc>
+  <rect width="1200" height="760" fill="#f5f9fb" />
+  <g fill="none" stroke-linecap="round">
+    <path d="M108 580C230 494 336 486 452 410s238-180 390-136 214 156 274 108" stroke="#dbeff5" stroke-width="108" />
+    <path d="M108 580C230 494 336 486 452 410s238-180 390-136 214 156 274 108" stroke="#7fb3c2" stroke-width="42" opacity="0.72" />
+    <path d="M108 600C260 444 374 548 510 408s250-112 374-80 164 24 232-34" stroke="#006d77" stroke-width="9" />
+    <path d="M112 548C258 498 366 456 498 356s252-170 382-72 180 144 270 88" stroke="#2f6f4e" stroke-width="9" opacity="0.82" />
+    <path d="M104 640C260 558 386 598 526 488s250-210 382-148 144 96 238 26" stroke="#c26b18" stroke-width="9" opacity="0.72" />
+  </g>
+  <g stroke="#102033" stroke-opacity="0.12">
+    <path d="M100 130H1100M100 260H1100M100 390H1100M100 520H1100M100 650H1100" />
+  </g>
+</svg>

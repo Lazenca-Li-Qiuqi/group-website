@@ -1,81 +1,33 @@
-# Agent Guidelines for al-folio
+# Group Website
 
-A simple, clean, and responsive Jekyll theme for academics.
+## 项目定位
 
-## Quick Links by Role
+本仓库现在是纯静态课题组网站。生产内容位于 `site/`，部署时直接发布该目录。
 
-- **Are you a coding agent?** → Read [`.github/copilot-instructions.md`](.github/copilot-instructions.md) first (tech stack, build, CI/CD, common pitfalls & solutions)
-- **Customizing the site?** → See [`.github/agents/customize.agent.md`](.github/agents/customize.agent.md)
-- **Writing documentation?** → See [`.github/agents/docs.agent.md`](.github/agents/docs.agent.md)
-- **Need setup/deployment help?** → [INSTALL.md](INSTALL.md)
-- **Troubleshooting & FAQ?** → [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
-- **Customization & theming?** → [CUSTOMIZE.md](CUSTOMIZE.md)
-- **Quick 5-min start?** → [QUICKSTART.md](QUICKSTART.md)
+旧 al-folio/Jekyll 方案已移除；后续不要重新引入 Ruby、Jekyll、Docker、RenderCV、Google Scholar 自动引用更新或相关模板工作流，除非用户明确要求。
 
-## Essential Commands
+## 目录地图
 
-### Local Development (Docker)
+- `site/index.html`：首页，包含首屏、导师介绍、研究方向、News、Selected publications。
+- `site/research.html`：研究方向页面。
+- `site/publications.html`：论文与成果页面。
+- `site/cv.html`：CV 页面。
+- `site/people.html`：成员页面。
+- `site/photos.html`：照片页面。
+- `site/styles.css`：全站样式。
+- `site/photos/`：照片和占位图资源。
+- `.github/workflows/deploy.yml`：发布 `site/` 到 GitHub Pages。
+- `.github/workflows/prettier.yml`：检查 `site/` 格式。
 
-The recommended approach is using Docker.
+## 开发约束
 
-```bash
-# Initial setup & start dev server
-docker compose pull && docker compose up
-# Site runs at http://localhost:8080
+1. 保持纯静态实现，优先使用 HTML/CSS，只有明确需要交互时再加入少量原生 JavaScript。
+2. 新增页面时同步更新所有页面的顶部导航。
+3. 图片资源优先放在 `site/photos/` 或 `site/assets/` 内，避免依赖外部图片链接。
+4. 提交前至少运行：
 
-# Rebuild after changing dependencies or Dockerfile
-docker compose up --build
-
-# Stop containers and free port 8080
-docker compose down
+```powershell
+npx --yes prettier site --check
 ```
 
-### Pre-Commit Checklist
-
-Before every commit, you **must** run these steps:
-
-1.  **Format Code:**
-    ```bash
-    # (First time only)
-    npm install --save-dev prettier @shopify/prettier-plugin-liquid
-    # Format all files
-    npx prettier . --write
-    ```
-2.  **Build Locally & Verify:**
-
-    ```bash
-    # Rebuild the site
-    docker compose up --build
-
-    # Verify by visiting http://localhost:8080.
-    # Check navigation, pages, images, and dark mode.
-    ```
-
-## Critical Configuration
-
-When modifying `_config.yml`, these **must be updated together**:
-
-- **Personal site:** `url: https://username.github.io` + `baseurl:` (empty)
-- **Project site:** `url: https://username.github.io` + `baseurl: /repo-name/`
-- **YAML errors:** Quote strings with special characters: `title: "My: Cool Site"`
-
-## Development Workflow
-
-- **Git & Commits:** For commit message format and Git practices, see [.github/GIT_WORKFLOW.md](.github/GIT_WORKFLOW.md).
-- **Code-Specific Instructions:** Consult the relevant instruction file for your code type.
-
-| File Type                                     | Instruction File                                                                                |
-| --------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| Markdown content (`_posts/`, `_pages/`, etc.) | [markdown-content.instructions.md](.github/instructions/markdown-content.instructions.md)       |
-| YAML config (`_config.yml`, `_data/`)         | [yaml-configuration.instructions.md](.github/instructions/yaml-configuration.instructions.md)   |
-| BibTeX (`_bibliography/`)                     | [bibtex-bibliography.instructions.md](.github/instructions/bibtex-bibliography.instructions.md) |
-| Liquid templates (`_includes/`, `_layouts/`)  | [liquid-templates.instructions.md](.github/instructions/liquid-templates.instructions.md)       |
-| JavaScript (`_scripts/`)                      | [javascript-scripts.instructions.md](.github/instructions/javascript-scripts.instructions.md)   |
-
-## Common Issues
-
-For troubleshooting, see:
-
-- [Common Pitfalls & Workarounds](.github/copilot-instructions.md#common-pitfalls--workarounds) in copilot-instructions.md
-- [TROUBLESHOOTING.md](TROUBLESHOOTING.md) for detailed solutions
-- [GitHub Issues](https://github.com/alshedivat/al-folio/issues) to search for your specific problem.
+5. 重要页面结构改动后，检查静态链接是否仍指向存在的本地文件。
