@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Research themes in atmospheric modeling, prediction, climate simulation, and scientific computing." />
     <title>Research | Group Website</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260519e" />
   </head>
   <body>
     <header class="site-header">
@@ -34,10 +34,13 @@
         </p>
       </section>
 
-      <section class="section two-column">
+      <section class="section two-column" id="research-directions">
         <aside class="rail">
-          <strong>Research architecture</strong>
-          <p>Each theme can become a detailed project page later. For now, the static site keeps these themes readable and easy to edit.</p>
+          <strong>Research focus</strong>
+          <p>
+            We study atmospheric prediction and climate simulation through numerical modeling, observational constraints, and scalable scientific
+            computing.
+          </p>
         </aside>
         <div class="timeline">
           <article class="timeline-item">
@@ -65,18 +68,67 @@
       </section>
 
       <section class="section compact">
-        <div class="grid">
-          <article class="panel">
-            <h3>Models</h3>
-            <p>Weather and climate models, ensemble experiments, and sensitivity tests.</p>
+        <div class="section-header">
+          <h2>Research projects</h2>
+          <p>Selected project areas that translate the group research directions into focused modeling, data, and computing work.</p>
+        </div>
+
+        <div class="project-list">
+          <article class="project-item">
+            <figure class="project-figure">
+              <img src="photos/atmosphere-01.svg" alt="Abstract atmospheric flow placeholder" />
+            </figure>
+            <div class="project-content">
+              <p class="eyebrow">Prediction systems</p>
+              <h3>Model dynamics and forecast verification</h3>
+              <p>
+                We evaluate how numerical model dynamics, physical parameterizations, and error growth shape short- to medium-range atmospheric
+                forecasts.
+              </p>
+              <div class="tag-list" aria-label="Project keywords">
+                <span>Forecast verification</span>
+                <span>Model physics</span>
+                <span>Error growth</span>
+              </div>
+            </div>
           </article>
-          <article class="panel">
-            <h3>Data</h3>
-            <p>Reanalysis, satellite observations, station records, and model output diagnostics.</p>
+
+          <article class="project-item">
+            <figure class="project-figure">
+              <img src="photos/atmosphere-03.svg" alt="Abstract observation network placeholder" />
+            </figure>
+            <div class="project-content">
+              <p class="eyebrow">Observations and uncertainty</p>
+              <h3>Data assimilation and predictability</h3>
+              <p>
+                This project connects observations, model states, and uncertainty diagnostics to improve initial conditions and understand
+                predictability limits.
+              </p>
+              <div class="tag-list" aria-label="Project keywords">
+                <span>Data assimilation</span>
+                <span>Uncertainty</span>
+                <span>Predictability</span>
+              </div>
+            </div>
           </article>
-          <article class="panel">
-            <h3>Methods</h3>
-            <p>Statistical verification, process diagnostics, numerical experiments, and workflow engineering.</p>
+
+          <article class="project-item">
+            <figure class="project-figure">
+              <img src="photos/atmosphere-05.svg" alt="Abstract climate diagnostics placeholder" />
+            </figure>
+            <div class="project-content">
+              <p class="eyebrow">Climate and computing</p>
+              <h3>Climate processes and scalable diagnostics</h3>
+              <p>
+                We develop reproducible diagnostic workflows for climate variability, extremes, land-atmosphere coupling, and large geophysical
+                datasets.
+              </p>
+              <div class="tag-list" aria-label="Project keywords">
+                <span>Climate extremes</span>
+                <span>Diagnostics</span>
+                <span>HPC workflows</span>
+              </div>
+            </div>
           </article>
         </div>
       </section>
