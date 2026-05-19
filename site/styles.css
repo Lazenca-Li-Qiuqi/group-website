@@ -6,6 +6,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Adobe Jenson Pro";
+  src: url("fonts/AdobeJensonPro-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --ink: #102033;
   --muted: #5e6d7d;
@@ -17,7 +25,9 @@
   --green: #2f6f4e;
   --amber: #c26b18;
   --shadow: 0 24px 60px rgba(16, 32, 51, 0.12);
-  --title-font: "Trajan Pro 3", "Trajan Pro", "Cinzel", Georgia, serif;
+  --title-font: "Trajan Pro 3", Georgia, serif;
+  --heading-font: var(--title-font);
+  --card-title-font: "Adobe Jenson Pro", Georgia, serif;
 }
 
 * {
@@ -26,6 +36,10 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+#research-directions {
+  scroll-margin-top: 96px;
 }
 
 body {
@@ -182,18 +196,42 @@ img {
 .button {
   display: inline-flex;
   align-items: center;
-  min-height: 46px;
-  padding: 0 18px;
-  border: 1px solid var(--ink);
-  border-radius: 999px;
-  background: var(--ink);
-  color: #ffffff;
+  gap: 9px;
+  min-height: 28px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
   font-weight: 720;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.button::after {
+  content: "→";
+  display: inline-block;
+  color: var(--ocean);
+  transition: transform 180ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  color: var(--ocean);
+}
+
+.button:hover::after,
+.button:focus-visible::after {
+  transform: translateX(4px);
 }
 
 .button.secondary {
-  background: transparent;
   color: var(--ink);
+}
+
+.button.secondary:hover,
+.button.secondary:focus-visible {
+  color: var(--ocean);
 }
 
 .photo-wall {
@@ -295,6 +333,13 @@ img {
   font-size: 1.08rem;
 }
 
+.mentor-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 38px;
+  margin-top: 24px;
+}
+
 .mentor-facts {
   display: flex;
   flex-wrap: wrap;
@@ -351,10 +396,17 @@ img {
 .section h2,
 .page-title h1 {
   margin: 0;
-  font-family: var(--title-font);
   font-size: clamp(2rem, 4vw, 4rem);
   line-height: 1.02;
   font-weight: 620;
+}
+
+.section h2 {
+  font-family: var(--title-font);
+}
+
+.page-title h1 {
+  font-family: var(--heading-font);
 }
 
 .section-header p,
@@ -362,6 +414,17 @@ img {
   margin: 0;
   color: var(--muted);
   font-size: 1.05rem;
+}
+
+.section-copy {
+  display: grid;
+  gap: 18px;
+}
+
+.section-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 24px;
 }
 
 .grid {
@@ -380,7 +443,7 @@ img {
 
 .panel h3 {
   margin: 0 0 12px;
-  font-family: var(--title-font);
+  font-family: var(--card-title-font);
   font-size: 1.12rem;
   line-height: 1.25;
 }
@@ -388,6 +451,64 @@ img {
 .panel p {
   margin: 0;
   color: var(--muted);
+}
+
+.project-list {
+  margin-top: 34px;
+  border-top: 1px solid var(--line);
+}
+
+.project-item {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.34fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.project-figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--soft);
+}
+
+.project-figure img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.project-content h3 {
+  margin: 8px 0 12px;
+  font-family: var(--card-title-font);
+  font-size: clamp(1.7rem, 3vw, 2.65rem);
+  line-height: 1.05;
+  font-weight: 620;
+}
+
+.project-content p {
+  max-width: 720px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.03rem;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.tag-list span {
+  padding: 5px 10px;
+  border: 1px solid rgba(0, 109, 119, 0.22);
+  border-radius: 999px;
+  color: var(--ocean);
+  font-size: 0.84rem;
+  font-weight: 720;
 }
 
 .list {
@@ -411,7 +532,7 @@ img {
 
 .list-item h3 {
   margin: 0 0 8px;
-  font-family: var(--title-font);
+  font-family: var(--card-title-font);
   font-size: 1.2rem;
 }
 
@@ -440,21 +561,23 @@ img {
 .rail {
   position: sticky;
   top: 104px;
-  padding: 22px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #ffffff;
+  padding-top: 6px;
 }
 
 .rail p {
+  max-width: 280px;
   margin: 0;
   color: var(--muted);
 }
 
 .rail strong {
   display: block;
-  margin-bottom: 8px;
-  color: var(--ink);
+  margin-bottom: 12px;
+  color: var(--ocean);
+  font-family: var(--heading-font);
+  font-size: 1.18rem;
+  font-weight: 620;
+  line-height: 1.1;
 }
 
 .timeline {
@@ -469,7 +592,7 @@ img {
 
 .timeline-item h3 {
   margin: 0 0 6px;
-  font-family: var(--title-font);
+  font-family: var(--card-title-font);
 }
 
 .timeline-item p {
@@ -506,7 +629,7 @@ img {
 
 .person h3 {
   margin: 0 0 4px;
-  font-family: var(--title-font);
+  font-family: var(--card-title-font);
 }
 
 .person p {
@@ -521,13 +644,19 @@ img {
 
 .publication h3 {
   margin: 0 0 8px;
-  font-family: var(--title-font);
+  font-family: var(--card-title-font);
   font-size: 1.18rem;
 }
 
 .publication p {
   margin: 0 0 8px;
   color: var(--muted);
+}
+
+.publication .publication-meta {
+  color: var(--ocean);
+  font-size: 0.92rem;
+  font-weight: 760;
 }
 
 .tags {
@@ -589,6 +718,7 @@ img {
 
   .grid,
   .photo-grid,
+  .project-item,
   .people-grid {
     grid-template-columns: 1fr;
   }
